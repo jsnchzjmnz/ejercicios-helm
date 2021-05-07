@@ -1,0 +1,37 @@
+app: crate
+
+crate:
+  clusterName: null
+  heapSize: 1.0  # GiB
+  numberOfNodes: 1
+  recoverAfterNodes: null
+
+http:
+  cors:
+    allowOrigin: "*"
+    enabled: false
+
+image:
+  tag: 4.0.4
+
+persistentVolume:
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  enabled: true
+  size: 10Gi
+  storageClass: retain
+
+resources:
+  limits:
+    cpu: 1
+    memory: null
+  requests:
+    cpu: 500m
+
+service:
+  name: crate
+  ports:
+    psql: 5432
+    ui: 4200
+  type: ClusterIP

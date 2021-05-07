@@ -1,0 +1,17 @@
+image:
+  tag: 4.5.0
+
+persistentVolume:
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  enabled: true
+  size: 10Gi
+  storageClass: default
+
+service:
+  name: crate
+  ports:
+    psql: 5432
+    ui: 4200
+  type: LoadBalancer
